@@ -33,7 +33,7 @@ function removeNota(){
 
 function searchNotas(){
     const id = document.getElementById('searchInput').value;
-    const table = document.getElementById('estoqueTable');
+    const table = document.getElementById('notasTable');
     if (table) {
         alert(`Laudo encontrado:\nID: ${laudo.id}\nData: ${laudo.data}\nEquipamento: ${laudo.equipamento}\nStatus: ${laudo.status}`);
     } 
