@@ -1,24 +1,22 @@
-//funçoes da tabela notas
-function addNota(){
+//funçoes da tabela pedidos
+function addPedidos(){
     const id = prompt('Digite o ID:');
-    const cliente = prompt('Digite o Nome do Cliente:');
-    const valor = prompt('Digite o Valor:');
+    const fornecedor = prompt('Digite o Nome do Fornecedor:');
     const data = prompt('Digite a data (AAAA-MM-DD):');
     const status = prompt('Digite o status:');
 
-    if(id && cliente && valor && data && status){
+    if(id && fornecedor && data && status){
         const newRow = `<tr>
             <td>${id}</td>
-            <td>${cliente}</td>
-            <td>${valor}</td>
+            <td>${fornecedor}</td>
             <td>${data}</td>
             <td>${status}</td>
         </tr>`;
-        document.getElementById('notasTable').insertAdjacentHTML('beforeend', newRow);
+        document.getElementById('pedidosTable').insertAdjacentHTML('beforeend', newRow);
     }
 }
 
-function removeNota(){
+function removePedidos(){
     const id = prompt('Digite o ID do item a ser removido:');
     const table = document.getElementById('notasTable');
     const rows = table.getElementsByTagName('tr');
@@ -34,7 +32,7 @@ function removeNota(){
     }
 }
 
-function searchNotas() {
+function searchPedidos() {
     const id = document.getElementById('searchInput').value;
     const table = document.getElementById('notasTable');
     const rows = table.getElementsByTagName('tr');

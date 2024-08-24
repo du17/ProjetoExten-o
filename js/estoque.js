@@ -1,4 +1,5 @@
-function addItem() {
+//funçoes da tabela estoque
+function addEstoque() {
     const id = prompt('Digite o ID:');
     const item = prompt('Digite o nome do item:');
     const quantidade = prompt('Digite a quantidade:');
@@ -14,7 +15,7 @@ function addItem() {
     }
 }
 
-function removeItem() {
+function removeEstoque() {
     const id = prompt('Digite o ID do item a ser removido:');
     const table = document.getElementById('estoqueTable');
     const rows = table.getElementsByTagName('tr');
@@ -23,10 +24,14 @@ function removeItem() {
             table.deleteRow(i);
             break;
         }
+
+        else {
+            alert('Nota não encontrado!');
+        }
     }
 }
 
-function searchItem() {
+function searchEstoque() {
     const id = document.getElementById('searchInput').value;
     const table = document.getElementById('estoqueTable');
     const rows = table.getElementsByTagName('tr');

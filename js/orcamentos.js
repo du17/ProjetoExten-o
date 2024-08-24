@@ -1,5 +1,5 @@
-//funçoes da tabela notas
-function addNota(){
+//funçoes da tabela orçamentos
+function addOrcamentos(){
     const id = prompt('Digite o ID:');
     const cliente = prompt('Digite o Nome do Cliente:');
     const valor = prompt('Digite o Valor:');
@@ -14,13 +14,13 @@ function addNota(){
             <td>${data}</td>
             <td>${status}</td>
         </tr>`;
-        document.getElementById('notasTable').insertAdjacentHTML('beforeend', newRow);
+        document.getElementById('orcamentosTable').insertAdjacentHTML('beforeend', newRow);
     }
 }
 
-function removeNota(){
+function removeOrcamentos(){
     const id = prompt('Digite o ID do item a ser removido:');
-    const table = document.getElementById('notasTable');
+    const table = document.getElementById('orcamentosable');
     const rows = table.getElementsByTagName('tr');
     for (let i = 0; i < rows.length; i++) {
         if (rows[i].cells[0].textContent === id) {
@@ -29,14 +29,14 @@ function removeNota(){
         }
 
         else {
-            alert('Nota não encontrado!');
+            alert('Orçamento não encontrado!');
         }
     }
 }
 
-function searchNotas() {
+function searchOrcamentos() {
     const id = document.getElementById('searchInput').value;
-    const table = document.getElementById('notasTable');
+    const table = document.getElementById('orcamentosTable');
     const rows = table.getElementsByTagName('tr');
     let itemFound = false;
 
@@ -44,7 +44,7 @@ function searchNotas() {
         const cellValue = rows[i].cells[0].textContent; // ID assumido na primeira coluna
         if (cellValue === id) {
             const itemDetails = Array.from(rows[i].cells).map(cell => cell.textContent).join('\n');
-            alert(`Nota encontrada:\n${itemDetails}`);
+            alert(`Orçamento encontrado:\n${itemDetails}`);
             itemFound = true;
             break;
         }

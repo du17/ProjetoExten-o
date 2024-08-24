@@ -38,61 +38,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-let laudos = [
-    { id: 1, data: '2024-08-01', equipamento: 'ECG', status: 'Concluído' },
-    { id: 2, data: '2024-08-05', equipamento: 'Ultrassom', status: 'Em andamento' }
-];
-
-// Função para renderizar os laudos na tabela
-function renderTable() {
-    const tbody = document.getElementById('laudosTable');
-    tbody.innerHTML = '';
-    laudos.forEach((laudo) => {
-        const row = `<tr>
-                        <td>${laudo.id}</td>
-                        <td>${laudo.data}</td>
-                        <td>${laudo.equipamento}</td>
-                        <td>${laudo.status}</td>
-                     </tr>`;
-        tbody.insertAdjacentHTML('beforeend', row);
-    });
-}
 
 // Função para adicionar um laudo
 function addLaudo() {
-    const id = laudos.length ? laudos[laudos.length - 1].id + 1 : 1;
+    const id = prompt('Digite o ID:')
     const data = prompt('Digite a data (AAAA-MM-DD):');
     const equipamento = prompt('Digite o equipamento:');
     const status = prompt('Digite o status:');
 
     if (data && equipamento && status) {
-        laudos.push({ id, data, equipamento, status });
-        renderTable();
+        const newRow = `<tr>
+            <td>${id}</td>
+            <td>${data}</td>
+            <td>${equipamento}</td>
+            <td>${status}</td>
+        </tr>`;
+        document.getElementById('laudosTable').insertAdjacentHTML('beforeend', newRow);
     }
 }
 
 // Função para remover um laudo pelo ID
 function removeLaudo() {
-    const id = prompt('Digite o ID do laudo a ser removido:');
-    const index = laudos.findIndex(laudo => laudo.id == id);
-    if (index !== -1) {
-        laudos.splice(index, 1);
-        renderTable();
-    } else {
-        alert('Laudo não encontrado!');
+    const id = prompt('Digite o ID do item a ser removido:');
+    const table = document.getElementById('laudosTable');
+    const rows = table.getElementsByTagName('tr');
+    for(let i = 0; i < rows.length; i++){
+        if(rows[i].cells[0].textContent === id){
+            table.deleteRow(i);
+            break;
+        }
+
+        else {
+            alert('Laudo não encontrado!');
+        }
     }
 }
 
 // Função para procurar um laudo pelo ID
 function searchLaudo() {
     const id = document.getElementById('searchInput').value;
-    const laudo = laudos.find(laudo => laudo.id == id);
-    if (laudo) {
-        alert(`Laudo encontrado:\nID: ${laudo.id}\nData: ${laudo.data}\nEquipamento: ${laudo.equipamento}\nStatus: ${laudo.status}`);
-    } else {
-        alert('Laudo não encontrado!');
+    const table = document.getElementById('laudosTable');
+    const rows = table.getElementsByTagName('tr');
+    let itemFound = false;
+
+    for (let i = 0; i < rows.length; i++) {
+        const cellValue = rows[i].cells[0].textContent; // ID assumido na primeira coluna
+        if (cellValue === id) {
+            const itemDetails = Array.from(rows[i].cells).map(cell => cell.textContent).join('\n');
+            alert(`Laudo encontrado:\n${itemDetails}`);
+            itemFound = true;
+            break;
+        }
+    }
+
+    if (!itemFound) {
+        alert('Laudo não encontrada!');
     }
 }
-
-// Inicializa a tabela ao carregar a página
-document.addEventListener('DOMContentLoaded', renderTable);
