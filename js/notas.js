@@ -31,16 +31,24 @@ function removeNota(){
     }
 }
 
-function searchNotas(){
+function searchNotas() {
     const id = document.getElementById('searchInput').value;
-    const table = document.getElementById('notasTable');
-    if (table) {
-        alert(`Laudo encontrado:\nID: ${laudo.id}\nData: ${laudo.data}\nEquipamento: ${laudo.equipamento}\nStatus: ${laudo.status}`);
-    } 
-    
-    else {
-        alert('Nota não encontrado!');
+    const nota = notas.find(nota => nota.id == id);
+    const rows = table.getElementsByTagName('tr');
+    let itemFound = false;
+
+    for (let i = 0; i < rows.length; i++) {
+        const cellValue = rows[i].cells[0].textContent; // ID assumido na primeira coluna
+        if (cellValue === id) {
+            const itemDetails = Array.from(rows[i].cells).map(cell => cell.textContent).join('\n');
+            alert(`Nota encontrada:\n${itemDetails}`);
+            itemFound = true;
+            break;
+        }
+    }
+
+    if (!itemFound) {
+        alert('Nota não encontrada!');
     }
 }
-
 document.addEventListener('DOMContentLoaded', renderTable);

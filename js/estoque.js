@@ -30,11 +30,19 @@ function searchItem() {
     const id = document.getElementById('searchInput').value;
     const table = document.getElementById('estoqueTable');
     const rows = table.getElementsByTagName('tr');
+    let itemFound = false;
+
     for (let i = 0; i < rows.length; i++) {
-        if (rows[i].cells[0].textContent === id) {
-            rows[i].style.backgroundColor = 'yellow'; // Destaque
-        } else {
-            rows[i].style.backgroundColor = ''; // Remove o destaque
+        const cellValue = rows[i].cells[0].textContent; // ID assumido na primeira coluna
+        if (cellValue === id) {
+            const itemDetails = Array.from(rows[i].cells).map(cell => cell.textContent).join('\n');
+            alert(`Item encontrado:\n${itemDetails}`);
+            itemFound = true;
+            break;
         }
+    }
+
+    if (!itemFound) {
+        alert('Item não encontrado!');
     }
 }
