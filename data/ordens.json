@@ -1,0 +1,4 @@
+[
+    {"ID": "1", "Data": "2024-08-01", "Descrição": "Manutenção Preventiva", "Status": "Concluído"},
+    {"ID": "2", "Data": "2024-08-03", "Descrição": "Substituição de Peça", "Status": "Pendente"}
+]

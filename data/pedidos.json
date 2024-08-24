@@ -1,0 +1,4 @@
+[
+    {"ID": "1", "Fornecedor": "EquipMed", "Data": "2024-08-02", "Status": "Recebido"},
+    {"ID": "2", "Fornecedor": "TecMed", "Data": "2024-08-04", "Status": "Em trânsito"}
+]

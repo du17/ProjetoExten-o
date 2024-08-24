@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Estoque</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">Med Equipments</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="laudos.html">Laudos</a></li>
+                <li class="nav-item"><a class="nav-link" href="estoque.html">Estoque</a></li>
+                <li class="nav-item"><a class="nav-link" href="ordens.html">Ordens de Serviço</a></li>
+                <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                <li class="nav-item"><a class="nav-link" href="notas.html">Notas Fiscais</a></li>
+                <li class="nav-item"><a class="nav-link" href="orcamentos.html">Orçamentos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Gestão de Estoque</h2>
+        <!--div class="mb-3">
+            <button class="btn btn-primary" onclick="addItem()">Adicionar Item</button>
+            <button class="btn btn-danger" onclick="removeItem()">Remover Item</button>
+            <button class="btn btn-info" onclick="searchLaudo()">Procurar Item</button>
+        </div>
+        <input type="text" id="searchInput" class="form-control" placeholder="Procurar por ID"-->
+
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="addItem('estoqueTable')">Adicionar</button>
+            <button class="btn btn-danger" onclick="removeItem('estoqueTable')">Remover</button>
+            <button class="btn btn-info" onclick="searchItem('estoqueTable')">Procurar</button>
+        </div>
+        <input type="text" id="searchInput" class="form-control" placeholder="Procurar por ID">
+        <table class="table table-hover mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Quantidade</th>
+                    <th>Local</th>
+                </tr>
+            </thead>
+            <tbody id="estoqueTable">
+                <!-- Conteúdo dinâmico via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <center>
+    <footer class="text-center py-3">
+        <p>&copy; 2024 Desenvolvido por Eduarda Machado</p>
+        <p>Contato: e.carreira@aluno.ifsp.edu.br</p>
+    </footer>
+   </center>
+   
+    <script src="/js/script.js"></script>
+    <script src="/js/estoque.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

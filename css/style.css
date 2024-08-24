@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    /*padding-top: 56px;*/
+    /*background: url('/img/fundo1.jpg') no-repeat center center/cover;*/
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #252525;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+  
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .nav-item a {
+        font-size: 0.9rem;
+    }
+    .btn {
+        margin-right: 10px;
+    }
+    
+    #searchInput {
+        width: 200px;
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .input-group {
+        max-width: 300px;
+    }
+    .container .btn {
+        flex-grow: 1;
+        margin: 5px;
+    }
+    
+}
