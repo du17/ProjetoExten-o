@@ -55,6 +55,24 @@ table {
     width: 100%;
     margin-top: 20px;
 }
+
+.card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-outline-danger {
+    background-color: #fff;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+
   
 
 @media (max-width: 576px) {

@@ -95,3 +95,62 @@ function searchLaudo() {
         alert('Laudo não encontrada!');
     }
 }
+
+//Login
+
+// Função de validação para o formulário de login
+function validateLogin() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (email === '' || password === '') {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+    }
+
+    alert('Login bem-sucedido!');
+    return true; // Simula um login bem-sucedido
+}
+
+// Função de validação para o formulário de registro
+function validateRegister() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (email === '' || password === '' || confirmPassword === '') {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+    }
+
+    if (password !== confirmPassword) {
+        alert('As senhas não coincidem.');
+        return false;
+    }
+
+    alert('Registro bem-sucedido!');
+
+    // Redireciona o usuário para a página "dashboard.html" após 2 segundos
+    setTimeout(function() {
+    window.location.href = 'estoque.html';
+    }, 2000);
+    return true; // Simula um registro bem-sucedido
+}
+
+// Função para inicializar a validação do Bootstrap
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+})();

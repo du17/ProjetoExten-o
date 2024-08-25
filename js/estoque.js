@@ -51,3 +51,69 @@ function searchEstoque() {
         alert('Item não encontrado!');
     }
 }
+
+// Função para Adicionar Item
+function addItem() {
+    const id = document.getElementById('addId').value;
+    const date = document.getElementById('addDate').value;
+    const equipamento = document.getElementById('addEquipamento').value;
+    const status = document.getElementById('addStatus').value;
+
+    const table = document.getElementById('estoqueTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
+
+    newRow.insertCell(0).textContent = id;
+    newRow.insertCell(1).textContent = date;
+    newRow.insertCell(2).textContent = equipamento;
+    newRow.insertCell(3).textContent = status;
+
+    alert('Item adicionado com sucesso!');
+    // Fechar modal após salvar
+    document.querySelector('#addModal .btn-close').click();
+}
+
+// Função para Remover Item
+function removeItem() {
+    const id = document.getElementById('removeId').value;
+    const table = document.getElementById('estoqueTable');
+    const rows = table.getElementsByTagName('tr');
+    let itemFound = false;
+
+    for (let i = 1; i < rows.length; i++) {
+        if (rows[i].cells[0].textContent === id) {
+            table.deleteRow(i);
+            itemFound = true;
+            alert('Item removido com sucesso!');
+            break;
+        }
+    }
+
+    if (!itemFound) {
+        alert('Item não encontrado!');
+    }
+    // Fechar modal após remover
+    document.querySelector('#removeModal .btn-close').click();
+}
+
+// Função para Procurar Item
+function searchNotas() {
+    const id = document.getElementById('searchInput').value;
+    const table = document.getElementById('estoqueTable');
+    const rows = table.getElementsByTagName('tr');
+    let itemFound = false;
+
+    for (let i = 1; i < rows.length; i++) {
+        if (rows[i].cells[0].textContent === id) {
+            const itemDetails = Array.from(rows[i].cells).map(cell => cell.textContent).join('\n');
+            alert(`Nota encontrada:\n${itemDetails}`);
+            itemFound = true;
+            break;
+        }
+    }
+
+    if (!itemFound) {
+        alert('ID não encontrada!');
+    }
+    // Fechar modal após procurar
+    document.querySelector('#searchModal .btn-close').click();
+}
