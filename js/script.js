@@ -98,45 +98,6 @@ function searchLaudo() {
 
 //Login
 
-// Função de validação para o formulário de login
-function validateLogin() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    if (email === '' || password === '') {
-        alert('Por favor, preencha todos os campos.');
-        return false;
-    }
-
-    alert('Login bem-sucedido!');
-    return true; // Simula um login bem-sucedido
-}
-
-// Função de validação para o formulário de registro
-function validateRegister() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-
-    if (email === '' || password === '' || confirmPassword === '') {
-        alert('Por favor, preencha todos os campos.');
-        return false;
-    }
-
-    if (password !== confirmPassword) {
-        alert('As senhas não coincidem.');
-        return false;
-    }
-
-    alert('Registro bem-sucedido!');
-
-    // Redireciona o usuário para a página "dashboard.html" após 2 segundos
-    setTimeout(function() {
-    window.location.href = 'estoque.html';
-    }, 2000);
-    return true; // Simula um registro bem-sucedido
-}
-
 // Função para inicializar a validação do Bootstrap
 (function () {
     'use strict'
@@ -148,9 +109,30 @@ function validateRegister() {
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
+                } else {
+                    // Se o formulário estiver válido, realizar o login
+                    event.preventDefault(); // Evita o envio padrão do formulário
+                    login();
                 }
 
                 form.classList.add('was-validated')
             }, false)
         })
 })();
+
+// Função de login
+function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Exemplo de validação simples (em um ambiente real, a validação deve ser feita no backend)
+    const validEmail = "adm@gmail.com";
+    const validPassword = "123456";
+
+    if (email === validEmail && password === validPassword) {
+        // Redirecionar para a página principal
+        window.location.href = 'home.html';
+    } else {
+        alert('Email ou senha incorretos.');
+    }
+}
